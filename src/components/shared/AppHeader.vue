@@ -78,23 +78,23 @@ export default {
 	<nav id="nav" class="sm:container sm:mx-auto">
 		<!-- Header start -->
 		<div
-			class="z-10 max-w-screen-lg xl:max-w-screen-xl block sm:flex sm:justify-between sm:items-center my-6"
+			class="z-10 max-w-screen-lg xl:max-w-screen-xl block sm:flex sm:justify-between sm:items-center my-8"
 		>
 			<!-- Header menu links and small screen hamburger menu -->
 			<div class="flex justify-between items-center px-4 sm:px-0">
 				<!-- Header logos -->
 				<div>
-					<router-link to="/"
-						><img
+					<router-link to="/" class="group">
+						<img
 							v-if="theme === 'light'"
 							src="@/assets/images/logo-dark.svg"
-							class="w-36"
+							class="w-40 group-hover:scale-105 transition-transform duration-300"
 							alt="Dark Logo"
 						/>
 						<img
 							v-else
 							src="@/assets/images/logo-light.svg"
-							class="w-36"
+							class="w-40 group-hover:scale-105 transition-transform duration-300"
 							alt="Light Logo"
 						/>
 					</router-link>
@@ -104,7 +104,7 @@ export default {
 				<theme-switcher
 					:theme="theme"
 					@themeChanged="updateTheme"
-					class="block sm:hidden bg-ternary-light dark:bg-ternary-dark hover:bg-hover-light dark:hover:bg-hover-dark hover:shadow-sm px-2.5 py-2 rounded-lg"
+					class="block sm:hidden glass hover:shadow-glow px-4 py-3 rounded-2xl transition-all duration-300 border-visible"
 				/>
 
 				<!-- Small screen hamburger menu -->
@@ -112,13 +112,13 @@ export default {
 					<button
 						@click="isOpen = !isOpen"
 						type="button"
-						class="focus:outline-none"
+						class="focus-ring p-3 rounded-2xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 border-visible"
 						aria-label="Hamburger Menu"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
-							class="h-7 w-7 fill-current text-secondary-dark dark:text-ternary-light"
+							class="h-6 w-6 fill-current text-gray-700 dark:text-gray-300 transition-colors duration-200"
 						>
 							<path
 								v-if="isOpen"
@@ -141,13 +141,13 @@ export default {
 
 			<!-- Header right section buttons -->
 			<div
-				class="hidden sm:flex justify-between items-center flex-col md:flex-row"
+				class="hidden sm:flex justify-between items-center flex-col md:flex-row gap-4"
 			>
 				<!-- Hire me button -->
 				<div class="hidden md:block">
 					<Button
 						title="Hire Me"
-						class="text-md font-general-medium bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
+						class="text-md font-body-medium bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-black shadow-soft hover:shadow-glow-lg rounded-2xl px-6 py-3 duration-300 hover-lift focus-ring border-gradient-light"
 						@click="showModal()"
 						aria-label="Hire Me Button"
 					/>
@@ -157,7 +157,7 @@ export default {
 				<theme-switcher
 					:theme="theme"
 					@themeChanged="updateTheme"
-					class="ml-8 bg-primary-light dark:bg-ternary-dark px-3 py-2 shadow-sm rounded-xl cursor-pointer"
+					class="glass hover:shadow-glow px-5 py-3 rounded-2xl cursor-pointer transition-all duration-300 border-visible"
 				/>
 			</div>
 		</div>
@@ -174,8 +174,7 @@ export default {
 
 <style scoped>
 #nav a.router-link-exact-active {
-	@apply text-indigo-700;
-	@apply dark:text-indigo-400;
-	@apply font-medium;
+	@apply text-accent-600 dark:text-accent-400;
+	@apply font-semibold;
 }
 </style>

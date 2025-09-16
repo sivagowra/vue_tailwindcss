@@ -50,75 +50,39 @@ export default {
 
 <template>
 	<!-- Projects grid -->
-	<section class="pt-10 sm:pt-14">
+	<section class="pt-16 sm:pt-20">
 		<!-- Projects grid title -->
-		<div class="text-center">
+		<div class="text-center mb-16">
 			<p
-				class="font-general-semibold text-2xl sm:text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light"
+				class="heading-display mb-6 gradient-text"
 			>
 				{{ projectsHeading }}
 			</p>
+			<div class="w-32 h-1.5 bg-gradient-to-r from-accent-500 to-purple-500 mx-auto rounded-full shadow-glow"></div>
 		</div>
 
 		<!-- Filter and search projects -->
-		<div class="mt-10 sm:mt-10">
+		<div class="mt-16 sm:mt-20">
 			<h3
-				class="font-general-regular
-					text-center text-secondary-dark
-					dark:text-ternary-light
-					text-md
-					sm:text-xl
-					font-normal
-					mb-4
-				"
+				class="body-large text-center text-black-body mb-10"
 			>
 				Search projects by title or filter by category
 			</h3>
 			<div
-				class="
-					flex
-					justify-between
-					border-b border-primary-light
-					dark:border-secondary-dark
-					pb-3
-					gap-2
-				"
+				class="flex justify-between items-center border-b-2 border-gray-400 dark:border-gray-500 pb-6 gap-6"
 			>
-				<div class="flex justify-between gap-2">
+				<div class="flex justify-between gap-6 flex-1">
 					<span
-						class="
-							hidden
-							sm:block
-							bg-primary-light
-							dark:bg-ternary-dark
-							p-2.5
-							shadow-sm
-							rounded-xl
-							cursor-pointer
-							"
+						class="hidden sm:block glass p-4 shadow-soft rounded-2xl cursor-pointer hover:shadow-glow transition-all duration-300 border-visible"
 					>
 						<i
 							data-feather="search"
-							class="text-ternary-dark dark:text-ternary-light"
+							class="text-black-body w-6 h-6"
 						></i>
 					</span>
 					<input
 						v-model="searchProject"
-						class="font-general-medium
-						pl-3
-						pr-1
-						sm:px-4
-						py-2
-						border-1 border-gray-200
-						dark:border-secondary-dark
-						rounded-lg
-						text-sm
-						sm:text-md
-						bg-secondary-light
-						dark:bg-ternary-dark
-						text-primary-dark
-						dark:text-ternary-light
-						"
+						class="input-black flex-1 text-base"
 						id="name"
 						name="name"
 						type="search"
@@ -133,12 +97,13 @@ export default {
 
 		<!-- Projects grid -->
 		<div
-			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10"
+			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-12 sm:gap-8 lg:gap-10"
 		>
 			<ProjectSingle
 				v-for="project in filteredProjects"
 				:key="project.id"
 				:project="project"
+				class="animate-scale-in"
 			/>
 		</div>
 	</section>

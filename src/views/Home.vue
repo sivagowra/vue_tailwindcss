@@ -14,21 +14,22 @@ export default {
 </script>
 
 <template>
-	<div class="container mx-auto">
+	<div class="container mx-auto px-4">
 		<!-- Banner -->
-		<AppBanner class="mb-5 sm:mb-8" />
+		<AppBanner class="mb-12 sm:mb-16" />
 
 		<!-- Projects -->
 		<ProjectsGrid />
 
 		<!-- Load more projects button -->
-		<div class="mt-10 sm:mt-20 flex justify-center">
+		<div class="mt-20 sm:mt-28 flex justify-center">
 			<router-link
 				to="/projects"
-				class="font-general-medium flex items-center px-6 py-3 rounded-lg shadow-lg hover:shadow-xl bg-indigo-500 hover:bg-indigo-600 focus:ring-1 focus:ring-indigo-900 text-white text-lg sm:text-xl duration-300"
+				class="group flex items-center px-10 py-5 text-lg font-body-medium bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-black rounded-2xl shadow-soft hover:shadow-glow-lg hover-lift focus-ring border-gradient-light"
 				aria-label="More Projects"
 			>
 				<Button title="More Projects" />
+				<i data-feather="arrow-right" class="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-300"></i>
 			</router-link>
 		</div>
 	</div>

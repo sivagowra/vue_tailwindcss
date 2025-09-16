@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-	<div :class="appTheme" class="pt-0.5">
+	<div :class="appTheme" class="min-h-screen bg-gradient-to-br from-primary-light to-ternary-light dark:from-primary-dark dark:to-secondary-dark transition-colors duration-500">
 		<!-- App header -->
 		<AppHeader />
 
@@ -37,7 +37,7 @@ export default {
 			visibleoffset="500"
 			right="30px"
 			bottom="20px"
-			class="shadow-lg"
+			class="shadow-glow hover:shadow-glow-lg"
 		>
 			<i data-feather="chevron-up"></i>
 		</back-to-top>
@@ -49,53 +49,71 @@ export default {
 
 <style>
 #app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+	font-family: 'GeneralSans-Variable', system-ui, -apple-system, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
+	text-rendering: optimizeLegibility;
 }
 
 .vue-back-to-top {
-	@apply p-2 bg-indigo-500 hover:bg-indigo-600 text-white transition
-        duration-500
-        ease-in-out
-        transform
-        hover:-translate-y-1 hover:scale-110;
+	@apply p-4 bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-black transition-all duration-300 ease-out transform hover:-translate-y-2 hover:scale-110 shadow-soft hover:shadow-glow-lg;
 	border-radius: 50%;
-	font-size: 22px;
-	line-height: 22px;
+	font-size: 20px;
+	line-height: 20px;
+	backdrop-filter: blur(10px);
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.vue-back-to-top:hover {
+	box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
 }
 
 .fade-enter-active {
-	animation: coming 0.4s;
-	animation-delay: 0.2s;
+	animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+	animation-delay: 0.1s;
 	opacity: 0;
 }
 
 .fade-leave-active {
-	animation: going 0.4s;
+	animation: slideOut 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes going {
+@keyframes slideOut {
 	from {
-		transform: translateX(0);
-	}
-
-	to {
-		transform: translateX(-10px);
-		opacity: 0;
-	}
-}
-
-@keyframes coming {
-	from {
-		transform: translateX(-10px);
-		opacity: 0;
-	}
-
-	to {
-		transform: translateX(0px);
+		transform: translateX(0) scale(1);
 		opacity: 1;
 	}
+	to {
+		transform: translateX(-20px) scale(0.95);
+		opacity: 0;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateX(20px) scale(0.95);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0) scale(1);
+		opacity: 1;
+	}
+}
+
+/* Enhanced focus styles */
+*:focus {
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
+
+*:focus-visible {
+	outline: 2px solid #3b82f6;
+	outline-offset: 2px;
+}
+
+/* Smooth transitions for theme changes */
+* {
+	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 </style>

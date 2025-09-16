@@ -1,5 +1,6 @@
 /*== 
  * Vue.js & TailwindCSS Portfolio Main CSS File
+ * Enhanced Design System
  * Powered by: @realstoman
 */
 
@@ -12,7 +13,42 @@
 /* Custom Styles Below */
 
 body {
-	font-family: 'GeneralSans-Regular';
+	font-family: 'GeneralSans-Variable', system-ui, -apple-system, sans-serif;
+	font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-variant-ligatures: common-ligatures;
+	font-kerning: auto;
+}
+
+/* Enhanced scrollbar styling */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Selection styling */
+::selection {
+	background: rgba(59, 130, 246, 0.2);
+	color: inherit;
+}
+
+::-moz-selection {
+	background: rgba(59, 130, 246, 0.2);
+	color: inherit;
 }
 
 /* Theme Colors */
@@ -217,6 +253,126 @@ body {
 /* Active class for navigation menu */
 .router-link-active,
 .router-link-exact-active {
-	@apply text-indigo-800;
-	@apply text-indigo-600 dark:text-indigo-300;
+	@apply text-accent-600 dark:text-accent-400;
+	@apply font-semibold;
+}
+
+/* Enhanced navigation link styles */
+nav a {
+	@apply transition-colors duration-300 ease-out;
+}
+
+nav a:hover {
+	@apply text-accent-600 dark:text-accent-400;
+}
+
+/* Enhanced button styles */
+.btn-primary {
+	@apply bg-gradient-to-r from-accent-500 to-purple-500 hover:from-accent-600 hover:to-purple-600 text-black font-medium px-6 py-3 rounded-xl shadow-lg hover:shadow-glow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-out;
+}
+
+.btn-secondary {
+	@apply glass hover:shadow-glow text-gray-700 dark:text-gray-300 font-medium px-6 py-3 rounded-xl transition-all duration-300 ease-out;
+}
+
+/* Enhanced card styles */
+.card {
+	@apply bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-glow-lg transition-all duration-300 ease-out border border-gray-200 dark:border-gray-700;
+}
+
+.card-hover {
+	@apply transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-out;
+}
+
+/* Enhanced input styles */
+.input-primary {
+	@apply px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-sm bg-white dark:bg-gray-800 text-black dark:text-black placeholder-gray-600 dark:placeholder-gray-400 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 dark:focus:ring-accent-800 transition-all duration-300;
+}
+
+.input-black {
+	@apply px-4 py-3 border-2 border-gray-400 rounded-xl text-sm bg-white text-black placeholder-gray-600 focus:border-black focus:ring-2 focus:ring-gray-200 transition-all duration-300;
+}
+
+/* Enhanced border styles */
+.border-elegant {
+	@apply border-2 border-gray-300 dark:border-gray-600 rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300;
+}
+
+.border-elegant-dark {
+	@apply border-2 border-gray-600 dark:border-gray-500 rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300;
+}
+
+.border-visible {
+	@apply border-2 border-black dark:border-white rounded-2xl shadow-lg transition-all duration-300;
+}
+
+.border-gradient-light {
+	border: 2px solid transparent;
+	background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #667eea 0%, #764ba2 100%) border-box;
+	@apply rounded-2xl shadow-soft hover:shadow-glow transition-all duration-300;
+}
+
+.border-gradient-dark {
+	border: 2px solid transparent;
+	background: linear-gradient(#1e293b, #1e293b) padding-box, linear-gradient(135deg, #667eea 0%, #764ba2 100%) border-box;
+	@apply rounded-2xl shadow-soft hover:shadow-glow transition-all duration-300;
+}
+
+/* Enhanced typography styles */
+.heading-display {
+	@apply font-display-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight;
+}
+
+.heading-large {
+	@apply font-display-semibold text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight;
+}
+
+.heading-medium {
+	@apply font-display-semibold text-xl sm:text-2xl lg:text-3xl leading-snug tracking-tight;
+}
+
+.heading-small {
+	@apply font-display-semibold text-lg sm:text-xl lg:text-2xl leading-snug tracking-tight;
+}
+
+.body-large {
+	@apply font-body-medium text-lg sm:text-xl leading-relaxed;
+}
+
+.body-medium {
+	@apply font-body-medium text-base sm:text-lg leading-relaxed;
+}
+
+.body-regular {
+	@apply font-body-regular text-sm sm:text-base leading-relaxed;
+}
+
+/* Enhanced focus and interaction styles */
+.focus-ring {
+	@apply focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800;
+}
+
+.hover-lift {
+	@apply transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 ease-out;
+}
+
+.hover-glow {
+	@apply hover:shadow-glow transition-all duration-300 ease-out;
+}
+
+/* Black font color utilities */
+.text-black-primary {
+	@apply text-black dark:text-black;
+}
+
+.text-black-secondary {
+	@apply text-gray-800 dark:text-gray-200;
+}
+
+.text-black-body {
+	@apply text-gray-700 dark:text-gray-300;
+}
+
+.text-black-muted {
+	@apply text-gray-600 dark:text-gray-400;
 }

@@ -7,24 +7,24 @@ export default {
 <template>
 	<router-link
 		to="/projects/single-project"
-		class="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark"
+		class="card card-hover cursor-pointer mb-10 sm:mb-0 bg-white dark:bg-gray-800"
 		aria-label="Single Project"
 	>
 		<div>
 			<img
 				:src="project.img"
 				:alt="project.title"
-				class="rounded-t-xl border-none"
+				class="rounded-t-2xl border-none"
 			/>
 		</div>
-		<div class="text-center px-4 py-6">
+		<div class="text-center px-6 py-8">
 			<p
-				class="font-general-semibold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2"
+				class="heading-small text-black-primary mb-3"
 			>
 				{{ project.title }}
 			</p>
 			<span
-				class="font-general-medium text-lg text-ternary-dark dark:text-ternary-light"
+				class="body-medium text-black-muted"
 				>{{ project.category }}</span
 			>
 		</div>
